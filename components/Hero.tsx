@@ -32,10 +32,11 @@ const fade = (delay: number) => ({
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-line">
+      <div className="relative mx-auto max-w-[1400px]">
       <div className="absolute inset-y-0 right-0 w-full opacity-25 md:w-[52%] md:opacity-100">
         <PointField />
       </div>
-      <div className="relative mx-auto flex min-h-[calc(100svh-3.5rem)] max-w-6xl flex-col justify-center px-5 py-20 sm:px-8">
+      <div className="relative flex min-h-[calc(100svh-3.5rem)] flex-col justify-center px-5 py-20 sm:px-8">
         <motion.p
           {...fade(0)}
           className="mb-4 font-mono text-[11px] tracking-[0.14em] text-dim uppercase"
@@ -47,7 +48,7 @@ export function Hero() {
         </motion.p>
         <h1
           aria-label={site.name}
-          className="mt-1 font-display text-[clamp(3.5rem,11vw,8rem)] leading-[0.95] font-medium tracking-[-0.04em]"
+          className="mt-1 font-display text-[clamp(3.5rem,11vw,8rem)] leading-[0.95] 2xl:text-[10rem] font-medium tracking-[-0.04em]"
         >
           <Word text={site.firstName} start={0.1} accent />
           <Word text={site.lastName} start={0.45} />
@@ -78,6 +79,7 @@ export function Hero() {
             <dd>{site.focus}</dd>
           </div>
         </motion.dl>
+      </div>
       </div>
     </section>
   );

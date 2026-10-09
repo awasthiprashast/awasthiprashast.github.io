@@ -5,7 +5,7 @@ import { beyond } from "@/data/beyond";
 export function Beyond() {
   return (
     <section id="beyond" className="border-b border-line py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <SectionHeading index="04" eyebrow="Beyond code">
           Beyond code.
         </SectionHeading>

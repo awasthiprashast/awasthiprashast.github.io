@@ -176,7 +176,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="border-b border-line py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <SectionHeading index="03" eyebrow="Projects">
           Projects.
         </SectionHeading>

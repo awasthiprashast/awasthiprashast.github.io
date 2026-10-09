@@ -19,7 +19,7 @@ export function Nav() {
     <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur-md">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 sm:px-8"
+        className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-5 sm:px-8"
       >
         <a href="#top" className="font-display text-lg font-medium tracking-tight">
           prashast<span className="text-accent">.</span>
