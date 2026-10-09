@@ -54,7 +54,7 @@ export function Contact() {
               LinkedIn
             </Button>
             {site.resume && (
-              <Button href={site.resume} external>
+              <Button href={site.resume} download={site.resumeFilename}>
                 Resume
               </Button>
             )}

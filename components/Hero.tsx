@@ -60,7 +60,7 @@ export function Hero() {
             See my experience
           </Button>
           {site.resume && (
-            <Button href={site.resume} external>
+            <Button href={site.resume} download={site.resumeFilename}>
               Resume
             </Button>
           )}

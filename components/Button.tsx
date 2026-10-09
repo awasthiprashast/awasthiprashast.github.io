@@ -3,11 +3,14 @@ type Props = {
   children: React.ReactNode;
   primary?: boolean;
   external?: boolean;
+  /** Filename to save as. Makes the link a same-site download instead of opening a new tab. */
+  download?: string;
+  size?: "md" | "sm";
 };
 
-export function Button({ href, children, primary, external }: Props) {
-  const base =
-    "group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border px-5 py-2.5 text-sm font-medium isolate";
+export function Button({ href, children, primary, external, download, size = "md" }: Props) {
+  const pad = size === "sm" ? "px-3.5 py-1.5 text-xs" : "px-5 py-2.5 text-sm";
+  const base = `group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border font-medium isolate ${pad}`;
   const tone = primary
     ? "border-accent bg-accent text-on-accent"
     : "border-line-strong text-fg hover:border-accent";
@@ -17,6 +20,7 @@ export function Button({ href, children, primary, external }: Props) {
     <a
       href={href}
       className={`${base} ${tone}`}
+      {...(download ? { download } : {})}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       <span

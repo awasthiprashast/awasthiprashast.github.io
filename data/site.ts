@@ -10,7 +10,8 @@ export const site = {
   email: "prashast.awasthi2212@gmail.com",
   github: "https://github.com/awasthiprashast",
   linkedin: "https://linkedin.com/in/prashast-awasthi",
-  // Set to "/resume.pdf" once an approved resume file is placed in /public.
-  resume: undefined as string | undefined,
+  // File lives in /public. The site is served from the domain root, so no base path is needed.
+  resume: "/Prashast_Awasthi_Resume.pdf" as string | undefined,
+  resumeFilename: "Prashast_Awasthi_Resume.pdf",
   siteUrl: undefined as string | undefined,
 };

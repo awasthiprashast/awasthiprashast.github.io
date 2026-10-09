@@ -2,7 +2,9 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Button } from "./Button";
 import { ThemeToggle } from "./ThemeToggle";
+import { site } from "@/data/site";
 
 const links = [
   { href: "#experience", label: "Experience" },
@@ -35,6 +37,11 @@ export function Nav() {
               </li>
             ))}
           </ul>
+          {site.resume && (
+            <Button href={site.resume} download={site.resumeFilename} size="sm">
+              Resume
+            </Button>
+          )}
           <ThemeToggle />
           <button
             type="button"
