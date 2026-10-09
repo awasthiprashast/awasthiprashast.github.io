@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { AssembleHeading } from "./AssembleHeading";
 
 export function Reveal({
   children,
@@ -31,7 +32,7 @@ export function SectionHeading({
 }: {
   index: string;
   eyebrow: string;
-  children: React.ReactNode;
+  children: string;
 }) {
   return (
     <div className="mb-10">
@@ -40,17 +41,7 @@ export function SectionHeading({
           {index} · {eyebrow}
         </p>
       </Reveal>
-      <h2 className="-mb-2 overflow-hidden pb-2 font-display text-5xl leading-[1.02] font-medium tracking-tight sm:text-7xl">
-        <motion.span
-          className="block"
-          initial={{ y: "105%" }}
-          whileInView={{ y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
-        >
-          {children}
-        </motion.span>
-      </h2>
+      <AssembleHeading>{children}</AssembleHeading>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { Marquee } from "@/components/Marquee";
 import { Nav } from "@/components/Nav";
 import { Projects } from "@/components/Projects";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { SectionBand } from "@/components/SectionBand";
+import { SectionStrip } from "@/components/SectionStrip";
 import { SideRail } from "@/components/SideRail";
 import { Toolkit } from "@/components/Toolkit";
 
@@ -19,15 +19,15 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <SectionBand n="02" label="Experience" />
+        <SectionStrip n="02" label="Experience" />
         <Experience />
-        <SectionBand n="03" label="Projects" reverse />
+        <SectionStrip n="03" label="Projects" />
         <Projects />
         <Marquee />
         <Beyond />
-        <SectionBand n="05" label="Toolkit" reverse />
+        <SectionStrip n="05" label="Toolkit" />
         <Toolkit />
-        <SectionBand n="06" label="Contact" />
+        <SectionStrip n="06" label="Contact" />
         <Contact />
       </main>
       <Footer />
