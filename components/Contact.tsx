@@ -50,26 +50,25 @@ export function Contact() {
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal>
           <p className="mb-4 font-mono text-[11px] tracking-[0.14em] text-dim uppercase">06 · Contact</p>
-          <h2 className="font-display text-5xl leading-[1.05] font-medium tracking-tight sm:text-7xl">
+          <h2 className="relative font-display text-5xl leading-[1.05] font-medium tracking-tight sm:text-7xl">
             Got a problem
             <br />
             worth{" "}
-            <span className="relative inline-block text-accent">
-              <span className="invisible">predicting</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={words[i]}
-                  className="absolute left-0"
-                  initial={{ y: 16, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -16, opacity: 0 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  {words[i]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            ?
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.span
+                key={words[i]}
+                className="inline-block text-accent"
+                initial={{ y: 16, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -16, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {words[i]}
+              </motion.span>
+            </AnimatePresence>
+            <motion.span layout="position" transition={{ duration: 0.3 }} className="inline-block">
+              ?
+            </motion.span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
