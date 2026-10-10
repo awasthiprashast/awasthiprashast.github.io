@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
+import { DownloadResume } from "./DownloadResume";
 import { Reveal } from "./Reveal";
 import { site } from "@/data/site";
 
@@ -83,10 +84,11 @@ export function Contact() {
               LinkedIn
             </Button>
             {site.resume && (
-              <Button href={site.resume} download={site.resumeFilename}>
+              <Button href={site.resume} external>
                 Resume
               </Button>
             )}
+              <DownloadResume />
           </div>
           <p className="mt-5 text-sm text-muted" aria-live="polite">
             {copied ? (

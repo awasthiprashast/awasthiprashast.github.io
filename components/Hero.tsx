@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Button } from "./Button";
+import { DownloadResume } from "./DownloadResume";
 import { PointField } from "./PointField";
 import { site } from "@/data/site";
 
@@ -61,10 +62,11 @@ export function Hero() {
             See my experience
           </Button>
           {site.resume && (
-            <Button href={site.resume} download={site.resumeFilename}>
+            <Button href={site.resume} external>
               Resume
             </Button>
           )}
+            <DownloadResume />
         </motion.div>
         <motion.dl
           {...fade(1.1)}

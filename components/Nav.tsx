@@ -38,7 +38,7 @@ export function Nav() {
             ))}
           </ul>
           {site.resume && (
-            <Button href={site.resume} download={site.resumeFilename} size="sm">
+            <Button href={site.resume} external size="sm">
               Resume
             </Button>
           )}
