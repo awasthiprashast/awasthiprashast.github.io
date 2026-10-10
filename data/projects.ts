@@ -82,7 +82,6 @@ export const projects: Project[] = [
     built:
       "An 8-agent orchestration workflow routes queries to specialist agents. The verification agent recomputes every number from source data and rejects out-of-tolerance claims.",
     categories: ["AI / ML"],
-    note: "too heavy to host",
   },
   {
     slug: "microaggregation-income-tax",
@@ -95,7 +94,8 @@ export const projects: Project[] = [
     notable:
       "At k=5, record-linkage risk falls from about 99.8% with per-attribute ranking to 13.8%, at 27% information loss. It reduces disclosure risk; it does not make data anonymous.",
     categories: ["Data", "Privacy"],
-    note: "code private",
+    repoUrl: "https://github.com/awasthiprashast/microaggregation-income-tax",
+    demoUrl: "https://microaggregation-income-tax.streamlit.app/",
     screenshots: [
       {
         src: "/projects/microagg-tradeoff.png",
@@ -114,7 +114,6 @@ export const projects: Project[] = [
       "A FastAPI backend serving a single-file vanilla JS frontend. The order lifecycle is a strict state machine, orders are placed in one transaction with an atomic stock check so concurrent orders can't oversell, and role-based access is enforced on the server.",
     notable: "Salted PBKDF2 passwords, rate-limited logins and pytest tests running in GitHub Actions.",
     categories: ["Software"],
-    note: "free tier: first load can take ~30s",
     repoUrl: "https://github.com/awasthiprashast/Order-tracking-system",
     demoUrl: "https://odts-order-tracking.onrender.com",
     screenshots: [
@@ -132,24 +131,15 @@ export const projects: Project[] = [
     note: "private · family photos",
   },
   {
-    slug: "stock-sentiment-analyzer",
-    title: "Stock market sentiment analyzer",
-    summary:
-      "Explores how news sentiment relates to stock price movements by pairing language-model sentiment scores with market data.",
-    tech: ["Python", "Hugging Face Transformers", "PyTorch", "yfinance", "pandas"],
-    categories: ["AI / ML", "Data"],
-    note: "in progress",
-  },
-  {
     slug: "social-media-content-analyzer",
     title: "Social media content analyzer",
     summary:
-      "Upload a PDF or a screenshot of a post and get an engagement score with concrete suggestions to improve it.",
+      "Upload a PDF or a screenshot of a post and get an engagement score with concrete suggestions to improve it, for LinkedIn, Instagram, Facebook and X.",
     tech: ["React", "TypeScript", "Vite", "pdf.js", "Tesseract OCR"],
     built:
-      "Text comes from the PDF's own text layer, rebuilt into reading order from glyph positions, or from OCR for scans and screenshots. The post is scored 0–100 across seven weighted categories (hook, engagement, length fit, readability, discoverability, tone, formatting) against each platform's norms for X, LinkedIn, Instagram and Facebook.",
+      "Text comes from the PDF's own text layer, rebuilt into reading order from glyph positions, or from OCR for scans and screenshots. The post is scored 0–100 across seven weighted categories (hook, engagement, length fit, readability, discoverability, tone, formatting) against each platform's norms.",
     notable:
-      "Everything runs in the browser, so uploads never leave the device. The scoring is hand-written, explainable rules rather than a model call: no API keys, works offline, and every score can be explained in a sentence.",
+      "Parsing, OCR and scoring all run in the browser, so uploads never leave the device. The scoring is hand-written, explainable rules rather than a model call: no API keys, works offline, and every score can be explained in a sentence.",
     categories: ["Data", "Software"],
     repoUrl: "https://github.com/awasthiprashast/social-media-content-analyzer",
     demoUrl: "https://social-media-content-analyzer-kappa-five.vercel.app/",
@@ -158,12 +148,13 @@ export const projects: Project[] = [
     slug: "adaptive-risk-detection",
     title: "Adaptive risk detection system",
     summary:
-      "A low-cost ESP32 safety and security monitor that turns motion, door, vibration, distance, air-quality and temperature readings into one live risk level.",
-    tech: ["ESP32", "C++ (Arduino)", "LittleFS", "Web dashboard", "DHT22", "MQ135"],
+      "A low-cost ESP32 safety and security monitor that fuses six sensors into one live risk level, from low to critical.",
+    tech: ["ESP32", "C++ (Arduino)", "LittleFS", "JSON API", "MQ135", "DHT22"],
     built:
-      "Firmware reads an ultrasonic sensor, PIR motion, a vibration sensor for tamper detection, a reed switch on the door, an MQ135 gas sensor and a DHT22 temperature sensor. It shows status on an OLED, sounds a buzzer, and serves a live web dashboard and JSON API over WiFi, with silence and reset actions.",
-    notable: "Built from roughly ₹1,500–2,000 of parts.",
-    categories: ["AI / ML", "Software"],
+      "Alerts come from combinations of sensors, not single readings: door open plus vibration means forced entry, rising gas plus high temperature means fire. Status shows on an OLED and a buzzer that speeds up with severity, and the ESP32 serves its own dashboard and JSON API over WiFi with no cloud.",
+    notable:
+      "The air-quality baseline calibrates itself after a 10-second warm-up and can be re-set from the dashboard, so alerts react to change from ambient rather than fixed values. Built from roughly ₹1,500–2,000 of parts.",
+    categories: ["Software"],
     repoUrl: "https://github.com/awasthiprashast/Adaptive-Risk-Detection-System",
   },
 ];

@@ -108,27 +108,43 @@ function Row({ p, n, open, onToggle }: { p: Project; n: number; open: boolean; o
   const id = useId();
   return (
     <li className="group border-t border-line last:border-b">
-      <button
-        type="button"
-        aria-expanded={open}
-        aria-controls={id}
-        onClick={onToggle}
-        className="grid w-full grid-cols-[2rem_1fr_auto] items-center gap-3 py-4 text-left sm:grid-cols-[2rem_1fr_auto_1.5rem]"
-      >
-        <span className="font-mono text-xs text-dim">{String(n).padStart(2, "0")}</span>
-        <span>
-          <span className="block font-display text-lg font-medium transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-accent">
-            {p.title}
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls={id}
+          onClick={onToggle}
+          className="grid min-w-0 flex-1 grid-cols-[2rem_1fr] items-center gap-3 py-4 text-left"
+        >
+          <span className="font-mono text-xs text-dim">{String(n).padStart(2, "0")}</span>
+          <span>
+            <span className="block font-display text-lg font-medium transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-accent">
+              {p.title}
+            </span>
+            <span className="mt-0.5 block text-xs text-dim">{p.tech.join(" · ")}</span>
           </span>
-          <span className="mt-0.5 block text-xs text-dim">{p.tech.join(" · ")}</span>
-        </span>
-        <span className="hidden sm:block">{p.note && <Chip>{p.note}</Chip>}</span>
-        <Plus
-          size={18}
+        </button>
+        <div className="flex shrink-0 items-center gap-1.5">
+          {p.note && (
+            <span className="hidden sm:block">
+              <Chip>{p.note}</Chip>
+            </span>
+          )}
+          {p.demoUrl && <Chip href={p.demoUrl}>live demo</Chip>}
+        </div>
+        <button
+          type="button"
+          tabIndex={-1}
           aria-hidden
-          className={`justify-self-end text-accent transition-transform duration-300 ${open ? "rotate-45" : ""}`}
-        />
-      </button>
+          onClick={onToggle}
+          className="grid size-6 shrink-0 place-items-center"
+        >
+          <Plus
+            size={18}
+            className={`text-accent transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+          />
+        </button>
+      </div>
       <div
         id={id}
         inert={!open}
