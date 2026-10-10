@@ -98,9 +98,14 @@ export const projects: Project[] = [
     demoUrl: "https://microaggregation-income-tax.streamlit.app/",
     screenshots: [
       {
-        src: "/projects/microagg-tradeoff.png",
-        alt: "Chart of the privacy and utility trade-off across k",
-        caption: "Privacy vs utility across k, from the project's own experiments",
+        src: "/projects/microagg-compare.png",
+        alt: "Dashboard comparing original and released records after micro-aggregation",
+        caption: "Original vs released records on a synthetic dataset, original values shown as bands",
+      },
+      {
+        src: "/projects/microagg-tradeoff-dashboard.png",
+        alt: "Dashboard chart of the privacy and utility trade-off across k values",
+        caption: "Privacy vs utility trade-off across k",
       },
     ],
   },
