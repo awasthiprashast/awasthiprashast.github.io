@@ -63,13 +63,26 @@ export const projects: Project[] = [
     slug: "swipehire",
     title: "SwipeHire",
     summary:
-      "A job platform where candidates swipe on jobs, hirers get matches, and applying takes one click.",
-    tech: ["Java", "Spring MVC", "Hibernate", "JSP", "Java RMI", "Docker"],
+      "Mutual-match hiring for internships and fresher roles: applicants swipe on jobs, recruiters swipe on applicants, and a mutual like opens an application with a resume tailored to that job.",
+    tech: ["Java", "Spring Boot", "Hibernate", "JSP", "Java RMI", "WebSocket", "MySQL", "Lucene"],
     built:
-      "Covers the full hiring workflow with a hirer web dashboard (JSP, AJAX). Users, jobs, swipes, matches and applications are a relational Hibernate schema (HQL, Criteria API), with job and application CRUD in Servlets and JDBC. A swipe-sync and match service runs over Java RMI.",
+      "A Maven multi-module build: a Spring Boot web app (JSP views, Hibernate entities, JDBC DAOs, servlets, WebSocket match alerts and chat) plus a standalone match engine in its own JVM, reached over Java RMI, that ranks candidates in parallel on a thread pool and falls back to in-process ranking if it is down.",
     notable:
-      "Thread pools handle background card prefetch and asynchronous match alerts, and the whole thing is containerised with Docker.",
+      "Matching is explainable: 0.45 skills + 0.20 TF-IDF (Lucene) + 0.15 learned taste + 0.10 location + 0.10 stipend, with the breakdown and matched or missing skills on every card. One-click apply tailors the applicant's own projects and skills to each job, and nothing is invented.",
     categories: ["Software"],
+    repoUrl: "https://github.com/awasthiprashast/swipehire",
+    screenshots: [
+      {
+        src: "/projects/swipehire-deck.png",
+        alt: "SwipeHire applicant deck showing a job card with a match score breakdown",
+        caption: "Applicant deck with the score breakdown, demo data",
+      },
+      {
+        src: "/projects/swipehire-recruiter.png",
+        alt: "SwipeHire recruiter dashboard listing jobs and candidates waiting for review",
+        caption: "Recruiter dashboard, demo data",
+      },
+    ],
     cover: "swipe",
     featured: true,
   },
