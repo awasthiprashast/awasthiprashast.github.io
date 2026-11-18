@@ -23,18 +23,30 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "executive-briefing-assistant",
-    title: "Smart Executive Briefing Assistant",
+    slug: "multi-agent-financial-research",
+    title: "Multi-agent financial research assistant",
     summary:
-      "Turns a 30–45 minute consultant research task into an automated, source-cited executive briefing.",
-    tech: ["Python", "LangGraph", "PostgreSQL", "pgvector", "FastAPI"],
+      "Specialist agents research a listed company, and a separate verification agent re-checks every claim against real prices, statements and news before you see it. It can also fact-check text written by anyone else, sentence by sentence.",
+    tech: ["Python", "Streamlit", "FastAPI", "FinBERT", "ChromaDB", "scikit-learn", "Docker"],
     built:
-      "A 6-node LangGraph pipeline turns 5 inputs into a briefing, drawing on a 500+ document knowledge base built from SEC EDGAR filings, GDELT news and web search.",
+      "A router sends each question to four specialist analysts (fundamental, technical, sentiment, risk). The verification agent then re-retrieves evidence on its own, checks every number against the data, recomputes indicators like RSI from raw prices, and sends weak claims back for at most two revisions before withholding them. It runs on live Yahoo Finance prices, statements and Google News for NSE and BSE companies, behind a Streamlit app and a FastAPI endpoint.",
     notable:
-      "Numeric checks run in deterministic Python and the LLM only cites metric reference IDs, so every figure in client-facing output stays auditable.",
+      "Evaluated on 339 hand-labelled sentences of real chatbot text, tuned on 7 companies and tested once on 5 held-out ones: it caught 81.8% of the wrong sentences and was right 97.6% of the time when it gave a verdict, while a check that trusts any sentence containing a number catches none. An academic prototype, not investment advice.",
     categories: ["AI / ML"],
-    note: "internal tool · no link",
-    cover: "pipeline",
+    repoUrl: "https://github.com/awasthiprashast/multi-agent-financial-research",
+    demoUrl: "https://multi-agent-financial-research.streamlit.app",
+    screenshots: [
+      {
+        src: "/projects/multiagent-factcheck.jpg",
+        alt: "Fact-check results marking sentences as wrong, with the real figure and a corrected version",
+        caption: "Fact-check mode: each sentence checked against the data, with the real figure shown",
+      },
+      {
+        src: "/projects/multiagent-briefing.jpg",
+        alt: "Company briefing with key figures and a verified summary",
+        caption: "Company briefing: key figures and a summary whose every sentence was checked first",
+      },
+    ],
     featured: true,
   },
   {
@@ -87,14 +99,17 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "multi-agent-financial-research",
-    title: "Multi-agent financial research assistant",
+    slug: "executive-briefing-assistant",
+    title: "Smart Executive Briefing Assistant",
     summary:
-      "Routes analyst questions across eight specialist agents, with a verification agent that rechecks every number.",
-    tech: ["Python", "LangGraph", "FinBERT", "ChromaDB", "Streamlit"],
+      "Turns a 30–45 minute consultant research task into an automated, source-cited executive briefing.",
+    tech: ["Python", "LangGraph", "PostgreSQL", "pgvector", "FastAPI"],
     built:
-      "An 8-agent orchestration workflow routes queries to specialist agents. The verification agent recomputes every number from source data and rejects out-of-tolerance claims.",
+      "A 6-node LangGraph pipeline turns 5 inputs into a briefing, drawing on a 500+ document knowledge base built from SEC EDGAR filings, GDELT news and web search.",
+    notable:
+      "Numeric checks run in deterministic Python and the LLM only cites metric reference IDs, so every figure in client-facing output stays auditable.",
     categories: ["AI / ML"],
+    note: "internal tool · no link",
   },
   {
     slug: "microaggregation-income-tax",
@@ -103,9 +118,9 @@ export const projects: Project[] = [
       "Publishes income and tax records with lower disclosure risk by grouping similar people together, then measures what that costs in accuracy.",
     tech: ["Python", "NumPy", "pandas", "SciPy", "Streamlit"],
     built:
-      "Validates and cleans a 5,000-record synthetic dataset, groups records with MDAV (groups of k to 2k−1), replaces each record with its group mean or mode, then measures information loss, regression validity, tax-rule consistency and re-identification attacks. A release guard blocks unsafe exports.",
+      "Validates and cleans a 5,000-record synthetic income and tax dataset, groups records with MDAV (groups of k to 2k−1), replaces each with its group mean or mode, then measures information loss, regression validity, tax-rule consistency and re-identification attacks. An extension repeats this on real US Census data (ACS 2022, California, 5,000 sampled people) with a diversity-aware variant, DA-MDAV. A release guard blocks unsafe exports.",
     notable:
-      "At k=5, record-linkage risk falls from about 99.8% with per-attribute ranking to 13.8%, at 27% information loss. It reduces disclosure risk; it does not make data anonymous.",
+      "On the synthetic data at k=5, record-linkage risk falls from about 99.8% with per-attribute ranking to 13.8%, at 27% information loss. On the real data, plain MDAV leaves 22.8% of people in groups with a single income band; DA-MDAV leaves none, at 2.5× the information loss. It reduces disclosure risk; it does not make data anonymous.",
     categories: ["Data", "Privacy"],
     repoUrl: "https://github.com/awasthiprashast/microaggregation-income-tax",
     demoUrl: "https://microaggregation-income-tax.streamlit.app/",
